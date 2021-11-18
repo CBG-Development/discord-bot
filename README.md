@@ -18,8 +18,8 @@ Third step create an `config.json` file at the project folder. Paste the informa
 
     {
 	    "token":  "TOKEN",
-		"clientId":  "APPLICATION ID",
-		"guildId":  "GUILD ID"
+        "clientId":  "APPLICATION ID",
+        "guildId":  "GUILD ID"
 	}
 
 Start the app with
