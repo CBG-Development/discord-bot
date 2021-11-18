@@ -15,6 +15,6 @@ module.exports = {
      * @param {Interaction} interaction 
      */
     async execute(interaction) {
-        await interaction.reply('Pong!');
+        await interaction.reply('Moin!');
     }
 }
