@@ -1,7 +1,7 @@
 FROM node:latest
 
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR /usr/src/cbg-discord-bot
 
 # Install dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
@@ -14,5 +14,3 @@ RUN npm ci --only=production
 
 # Bundle app source
 COPY . .
-
-CMD [ "node", "src/index.js" ]

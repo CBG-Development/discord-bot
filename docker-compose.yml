@@ -6,5 +6,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    command: npm start
+    volumes:
+      - .:/usr/src/cbg-discord-bot
+      - /usr/src/node_modules
+    ports:
+      - "3030:3030"
     env_file: .env
     restart: always

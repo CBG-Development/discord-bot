@@ -6,6 +6,20 @@ const config = require('../config.json');
 const dotenv = require('dotenv');
 const fs = require('fs');
 const deployCommands = require('./deploy-commands');
+const api = require('./api');
+
+/**
+ * Host constants
+ */
+global.port = 3030;
+global.host = '0.0.0.0';
+
+/**
+ * Status of the Bot
+ * true = connected to discord
+ * false = connection error
+ */
+global.botStatus = false;
 
 /**
  * Setting up Environment variables
@@ -17,6 +31,11 @@ config['clientId'] = process.env.DISCORD_CLIENT_ID;
 config['guildId'] = process.env.DISCORD_GUILD_ID;
 
 process.env.DEBUG ? config['debug'] = true : config['debug'] = false;
+
+/**
+ * Starting API
+ */
+api;
 
 /**
  * Deploying Clients to Discord
@@ -68,8 +87,9 @@ client.on('interactionCreate', async (interaction) => {
 });
 
 /* Discord Bot is ready! */
-client.once('ready', () => {
-    console.log('CBG-Bot is now ready!');
+client.on('ready', () => {
+    global.botStatus = true; // Set Bot status to connected (true)
+    console.log(`${client.user.tag} is connected to Discord!`);
 });
 
 /* Login Discord Client */
