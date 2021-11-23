@@ -11,7 +11,7 @@ const api = require('./api');
 /**
  * Host constants
  */
-global.port = 3030;
+global.port = 80;
 global.host = '0.0.0.0';
 
 /**

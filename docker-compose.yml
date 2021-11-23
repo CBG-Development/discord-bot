@@ -9,7 +9,8 @@ services:
       - /usr/src/cbg-discord-bot/node_modules
     command: npm run start
     ports:
-      - "3030:3030"
+      - "80:3030"
+    network_mode: 'host'
     env_file: .env
     environment:
       NODE_ENV: production
