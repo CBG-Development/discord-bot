@@ -2,9 +2,18 @@
  * Library
  */
 const {Client, Collection, Intents} = require('discord.js');
-const {token} = require('../config.json');
+const config = require('../config.json');
 const fs = require('fs');
 const deployCommands = require('./deploy-commands');
+
+/**
+ * Setting up Environment variables
+ */
+config['token'] = process.env.DISCONNECT_TOKEN;
+config['clientId'] = process.env.DISCORD_CLIENT_ID;
+config['guildId'] = process.env.DISCORD_GUILD_ID;
+
+prcoess.env.DEBUG ? config['debug'] = true : config['debug'] = false;
 
 /**
  * Deploying Clients to Discord
