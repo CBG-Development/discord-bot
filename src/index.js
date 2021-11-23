@@ -70,4 +70,4 @@ client.once('ready', () => {
 });
 
 /* Login Discord Client */
-client.login(token);
+client.login(client.token);
