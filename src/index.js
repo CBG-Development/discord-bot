@@ -13,7 +13,7 @@ config['token'] = process.env.DISCONNECT_TOKEN;
 config['clientId'] = process.env.DISCORD_CLIENT_ID;
 config['guildId'] = process.env.DISCORD_GUILD_ID;
 
-prcoess.env.DEBUG ? config['debug'] = true : config['debug'] = false;
+process.env.DEBUG ? config['debug'] = true : config['debug'] = false;
 
 /**
  * Deploying Clients to Discord
