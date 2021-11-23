@@ -4,13 +4,15 @@ services:
   discordbot: 
     container_name: cbg-discord-bot
     build:
-      context: .
+      context: ./
       dockerfile: Dockerfile
-    command: npm start
     volumes:
       - .:/usr/src/cbg-discord-bot
       - /usr/src/node_modules
+    command: npm run start
     ports:
       - "3030:3030"
     env_file: .env
+    environment:
+      NODE_ENV: production
     restart: always
