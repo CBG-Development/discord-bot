@@ -3,11 +3,10 @@ version: '3'
 services:
   discordbot: 
     container_name: cbg-discord-bot
-    build:
-      context: ./
-      dockerfile: Dockerfile
+    build: .
     volumes:
-      - .:/usr/src/cbg-discord-bot
+      - .:/usr/src/cbg-discord-bot/
+      - /usr/src/cbg-discord-bot/node_modules
     command: npm run start
     ports:
       - "3030:3030"
