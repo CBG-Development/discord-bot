@@ -7,6 +7,6 @@ EXPOSE 3030
 
 FROM base as production
 ENV NODE_ENV=production
-RUN npm ci
+RUN npm ci --only-pr
 COPY . /
 CMD ["node", "src/index.js"]

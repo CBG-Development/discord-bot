@@ -7,8 +7,7 @@ services:
       context: ./
       dockerfile: Dockerfile
     volumes:
-      - .:/usr/src/cbg-discord-bot
-      - /usr/src/node_modules
+      - .:/usr/src
     command: npm run start
     ports:
       - "3030:3030"
