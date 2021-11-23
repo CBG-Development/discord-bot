@@ -3,13 +3,16 @@
  */
 const {Client, Collection, Intents} = require('discord.js');
 const config = require('../config.json');
+const dotenv = require('dotenv');
 const fs = require('fs');
 const deployCommands = require('./deploy-commands');
 
 /**
  * Setting up Environment variables
  */
-config['token'] = process.env.DISCONNECT_TOKEN;
+dotenv.config();
+
+config['token'] = process.env.DISCORD_TOKEN;
 config['clientId'] = process.env.DISCORD_CLIENT_ID;
 config['guildId'] = process.env.DISCORD_GUILD_ID;
 
@@ -66,7 +69,7 @@ client.on('interactionCreate', async (interaction) => {
 
 /* Discord Bot is ready! */
 client.once('ready', () => {
-    console.log('Ready!');
+    console.log('CBG-Bot is now ready!');
 });
 
 /* Login Discord Client */
