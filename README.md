@@ -14,13 +14,13 @@ Second step is to create an [Discord Application](https://discord.com/developers
  - Token
  - Guild ID
 
-Third step create an `config.json` file at the project folder. Paste the information that you copied in the last step:
+Third step create an `.env` file at the project folder. Paste the information that you copied in the last step:
 
-    {
-	    "token":  "TOKEN",
-        "clientId":  "APPLICATION ID",
-        "guildId":  "GUILD ID"
-	}
+    DEBUG=false
+    
+    DISCORD_TOKEN=YOURTOKEN
+    DISCORD_CLIENT_ID=APPID
+    DISCORD_GUILD_ID=GUILDID
 
 Start the app with
 
