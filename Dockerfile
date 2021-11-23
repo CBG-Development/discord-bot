@@ -9,4 +9,4 @@ FROM base as production
 ENV NODE_ENV=production
 RUN npm ci --only-production
 COPY . /
-CMD ["node", "src/index.js"]
+CMD ["node", "./src/index.js"]
