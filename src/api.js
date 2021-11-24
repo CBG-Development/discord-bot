@@ -21,5 +21,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(global.port, global.host, () => {
-    console.log(`API listening at http://localhost:${global.port}`)
+    console.log(`API listening at http://${global.host}:${global.port}`)
 });
