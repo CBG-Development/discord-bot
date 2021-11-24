@@ -9,12 +9,6 @@ const deployCommands = require('./deploy-commands');
 const api = require('./api');
 
 /**
- * Host constants
- */
-global.port = 8080;
-global.host = '127.0.0.1';
-
-/**
  * Status of the Bot
  * true = connected to discord
  * false = connection error

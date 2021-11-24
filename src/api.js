@@ -20,6 +20,6 @@ app.get('/', (req, res) => {
     );
 });
 
-app.listen(global.port, global.host, () => {
-    console.log(`API listening at http://${global.host}:${global.port}`)
+app.listen(3000, '0.0.0.0', () => {
+    console.log(`API is ready!`)
 });
