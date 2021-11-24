@@ -11,8 +11,8 @@ const api = require('./api');
 /**
  * Host constants
  */
-global.port = 80;
-global.host = '0.0.0.0';
+global.port = 8080;
+global.host = '127.0.0.1';
 
 /**
  * Status of the Bot
