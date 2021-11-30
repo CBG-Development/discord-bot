@@ -21,7 +21,8 @@ module.exports = {
 
         const embet = new MessageEmbed()
         .setTitle('GitHub | CBG-Development/discord-bot')
-        .setDescription('https://github.com/CBG-Development/discord-bot')
+        .setURL('https://github.com/CBG-Development/discord-bot')
+        .setDescription('This is the official GitHub respository for our Discord-Bot')
         .setColor('#0081c6')
         .setThumbnail('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png')
         .setImage('https://www.bbs-technik-koblenz.de/www/images/bilder/Logo/logo_2013.png');
