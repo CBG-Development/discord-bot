@@ -23,7 +23,12 @@ module.exports = {
 		.setDescription('test')
 		.setRequired(true)),
 	
-	needAdminPermission: true,
+	permissions: [
+        // Projektleitung
+		{ id: '905730518505644042', type: 'ROLE'},
+        // Discord Administration
+        { id: '905472488069292112', type: 'ROLE' },
+	],
 	/**
      * Execute
      * @param {Interaction} interaction 

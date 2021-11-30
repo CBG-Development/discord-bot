@@ -22,9 +22,12 @@ module.exports = {
     needAdminPermission: true,
     
     permissions: [
-        '905730518505644042', // Projektleitung
-        '905472488069292112', // Discord Administration
-        '909763190970281985', // Arbeitspaket Leitung
+        // Projektleitung
+        { id: '905730518505644042', type: 'ROLE' },
+        // Discord Administration
+        { id: '905472488069292112', type: 'ROLE' },
+        // Arbeitspaket Leitung
+        { id: '909763190970281985', type: 'ROLE' },
     ],
     async execute(interaction) {
         const messageId = await interaction.options.getString('messageid');

@@ -22,11 +22,21 @@ global.botStatus = false;
  */
 dotenv.config();
 
-config['token'] = process.env.DISCORD_TOKEN;
-config['clientId'] = process.env.DISCORD_CLIENT_ID;
-config['guildId'] = process.env.DISCORD_GUILD_ID;
-
-process.env.DEBUG ? config['debug'] = true : config['debug'] = false;
+/**
+ * Environment Variables
+ * 
+ * Token
+ * process.env.DISCORD_TOKEN
+ * 
+ * Client ID
+ * process.env.DISCORD_CLIENT_ID
+ * 
+ * Guild ID
+ * process.env.DISCORD_GUILD_ID
+ * 
+ * DEBUG Mode
+ * process.env.DEBUG
+ */
 
 /**
  * Starting API
@@ -68,8 +78,7 @@ for (const file of eventFiles) {
 	}
 }
 
-/* Sets the reloadPermission funciton*/ 
-
+/* Sets the reloadPermission function*/ 
 client.reloadPermission = reloadPermission;
 
 /* Check Interactions for command */
@@ -81,21 +90,6 @@ client.on('interactionCreate', async (interaction) => {
     if (!command) return;
 
     try {
-        
-        /*
-        if (command.permissions !== undefined) {
-            for (const id of command.permissions) {
-                if (interaction.member.roles.cache.has(id)) {
-                    await command.execute(interaction);
-                    return;
-                }
-            }
-            interaction.reply({ content: 'Keine Rechte!', ephemeral: true })
-        } else {
-            await command.execute(interaction);
-        }
-        */
-
         await command.execute(interaction);
     } catch (err) {
         console.error(err);
@@ -104,17 +98,15 @@ client.on('interactionCreate', async (interaction) => {
 });
 
 /* Discord Bot is ready! */
-client.on('ready', () => {
+client.on('ready', async () => {
 
     client.reactionRoleManager = new ReactionRoleManager();
 
-    client.guilds.cache.forEach(guild => {
-       client.reloadPermission(client, guild);
-    })
+    client.reloadPermission(client, client.guilds.cache.get(process.env.DISCORD_GUILD_ID));
 
     global.botStatus = true; // Set Bot status to connected (true)
     console.log(`${client.user.tag} is connected to Discord!`);
 });
 
 /* Login Discord Client */
-client.login(client.token);
+client.login(process.env.DISCORD_TOKEN);

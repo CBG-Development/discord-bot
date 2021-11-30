@@ -20,14 +20,13 @@ module.exports = {
                 .setDescription('Thema der Umfrage')
                 .setRequired(true)),
 
-    needAdminPermission: true,
-
     permissions: [
-        '905730518505644042', // Projektleitung
-        '905472488069292112', // Discord Administration
-        '909763190970281985', // Arbeitspaket Leitung
-        '910194731642925066', // Test Rolle andere Guild
-
+        // Projektleitung
+        { id: '905730518505644042', type: 'ROLE' },
+        // Discord Administration
+        { id: '905472488069292112', type: 'ROLE' },
+        // Arbeitspaket Leitung
+        { id: '909763190970281985', type: 'ROLE' },
     ],
     /**
      * Execute
