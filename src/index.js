@@ -2,7 +2,6 @@
  * Library
  */
 const {Client, Collection, Intents} = require('discord.js');
-const config = require('../config.json');
 const dotenv = require('dotenv');
 const fs = require('fs');
 const deployCommands = require('./deploy-commands');
