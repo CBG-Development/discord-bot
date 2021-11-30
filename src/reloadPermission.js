@@ -1,4 +1,4 @@
-const { Client, Guild, Permissions } = require("discord.js");
+const { Client, Guild } = require("discord.js");
 
 module.exports = {
     /**

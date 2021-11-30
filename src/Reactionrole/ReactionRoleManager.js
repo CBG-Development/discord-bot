@@ -1,5 +1,5 @@
 const { Collection, Client, GuildEmoji, ReactionEmoji, Permissions} = require("discord.js");
-const ReactionRole = require("./Reactionrole");
+const ReactionRole = require("./ReactionRole");
 const fs = require('fs');
 
 class ReactionRoleManager{
