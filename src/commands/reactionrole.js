@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton } = require('discord.js');
 const fs = require('fs');
 const Reactionrole = require("../Reactionrole/ReactionRole");
-const ReactionRoleManager = require('../Reactionrole/ReactionroleManager');
+const ReactionRoleManager = require('../Reactionrole/ReactionRoleManager');
 
  /**
  * Title: Reaction role
