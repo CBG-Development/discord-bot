@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 const fs = require('fs');
 const deployCommands = require('./deploy-commands');
 const api = require('./api');
-const ReactionRoleManager = require('./Reactionrole/ReactionroleManager');
+const ReactionRoleManager = require('./Reactionrole/ReactionRoleManager');
 const { reloadPermission } = require('./reloadPermission');
 
 /**
