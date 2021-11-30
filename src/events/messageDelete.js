@@ -1,6 +1,6 @@
 const fs = require('fs');
 const reactionrole = require('../commands/reactionrole');
-const ReactionRoleManager = require('../Reactionrole/ReactionroleManager');
+const ReactionRoleManager = require('../Reactionrole/ReactionRoleManager');
 
 module.exports = {
 	name: 'messageDelete',

@@ -1,5 +1,5 @@
 const { ReactionManager, User, MessageReaction } = require("discord.js");
-const ReactionRoleManager = require("../Reactionrole/ReactionroleManager");
+const ReactionRoleManager = require("../Reactionrole/ReactionRoleManager");
 
 module.exports = {
 	name: 'messageReactionAdd',
