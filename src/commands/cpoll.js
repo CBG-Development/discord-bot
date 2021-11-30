@@ -3,7 +3,6 @@
  */
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, Interaction, MessageActionRow, MessageButton } = require('discord.js');
-const polls = require('./cpolls.json');
 const wait = require('util').promisify(setTimeout);
 
  /**
