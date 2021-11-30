@@ -13,9 +13,4 @@ services:
     env_file: .env
     environment:
       NODE_ENV: production
-    deploy:
-      restart_policy:
-        condition: on-failure
-        delay: 5s
-        max_attempts: 3
-        window: 120s
+    restart: on-failure
