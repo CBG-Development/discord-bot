@@ -7,6 +7,8 @@ const dotenv = require('dotenv');
 const fs = require('fs');
 const deployCommands = require('./deploy-commands');
 const api = require('./api');
+const ReactionRoleManager = require('./Reactionrole/ReactionroleManager');
+const { reloadPermission } = require('./reloadPermission');
 
 /**
  * Status of the Bot
@@ -53,6 +55,23 @@ for (const file of commandFiles) {
     client.commands.set(command.data.name, command);
 };
 
+/* Read Events */
+
+const eventFiles = fs.readdirSync(__dirname + '/events').filter(file => file.endsWith('.js'));
+
+for (const file of eventFiles) {
+	const event = require(`./events/${file}`);
+	if (event.once) {
+		client.once(event.name, (...args) => event.execute(...args));
+	} else {
+		client.on(event.name, (...args) => event.execute(...args));
+	}
+}
+
+/* Sets the reloadPermission funciton*/ 
+
+client.reloadPermission = reloadPermission;
+
 /* Check Interactions for command */
 client.on('interactionCreate', async (interaction) => {
     if (!interaction.isCommand()) return;
@@ -62,6 +81,8 @@ client.on('interactionCreate', async (interaction) => {
     if (!command) return;
 
     try {
+        
+        /*
         if (command.permissions !== undefined) {
             for (const id of command.permissions) {
                 if (interaction.member.roles.cache.has(id)) {
@@ -73,7 +94,9 @@ client.on('interactionCreate', async (interaction) => {
         } else {
             await command.execute(interaction);
         }
+        */
 
+        await command.execute(interaction);
     } catch (err) {
         console.error(err);
         await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
@@ -82,6 +105,13 @@ client.on('interactionCreate', async (interaction) => {
 
 /* Discord Bot is ready! */
 client.on('ready', () => {
+
+    client.reactionRoleManager = new ReactionRoleManager();
+
+    client.guilds.cache.forEach(guild => {
+       client.reloadPermission(client, guild);
+    })
+
     global.botStatus = true; // Set Bot status to connected (true)
     console.log(`${client.user.tag} is connected to Discord!`);
 });

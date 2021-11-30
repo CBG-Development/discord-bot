@@ -15,21 +15,27 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('cpoll')
         .setDescription('Erstelle Umfragen in einem Text-Channel')
+        .setDefaultPermission(false)
         .addStringOption(option =>
             option.setName('theme')
                 .setDescription('Thema der Umfrage')
                 .setRequired(true)),
+
+    needAdminPermission: true,
+
     permissions: [
         '905730518505644042', // Projektleitung
         '905472488069292112', // Discord Administration
         '909763190970281985', // Arbeitspaket Leitung
+        '910194731642925066', // Test Rolle andere Guild
+
     ],
     /**
      * Execute
      * @param {Interaction} interaction 
      */
     async execute(interaction) {
-
+        
         /**
          * Get Answer as an element
          * @param {String} string 

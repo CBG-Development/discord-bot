@@ -13,10 +13,14 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('rpoll')
         .setDescription('Schickt eine private Nachricht mit allen Spielern die reagiert haben!')
+        .setDefaultPermission(false)
         .addStringOption(option =>
             option.setName('messageid')
                 .setDescription('Message ID')
                 .setRequired(true)),
+    
+    needAdminPermission: true,
+    
     permissions: [
         '905730518505644042', // Projektleitung
         '905472488069292112', // Discord Administration
