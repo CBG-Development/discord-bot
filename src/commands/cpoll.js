@@ -87,8 +87,8 @@ module.exports = {
                 ephemeral: true
             });
             
-            const collector = interaction.channel.createMessageCollector({ filterMessage, time: 60000 })
-            const collectorComponent = interaction.channel.createMessageComponentCollector({ filterComponent, componentType: 'BUTTON', time: 60000 })
+            const collector = interaction.channel.createMessageCollector({ filter: filterMessage, time: 60000 })
+            const collectorComponent = interaction.channel.createMessageComponentCollector({ filter: filterComponent, componentType: 'BUTTON', time: 60000 })
 
             collector.on('collect', async message => {
                 const answerE = getAnswerElements(message.content);
