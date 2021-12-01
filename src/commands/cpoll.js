@@ -41,10 +41,12 @@ module.exports = {
         const getAnswerElements = (string) => {
             const emoji = string.split(' ')[0];
             const regexEmoji = /(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/gi;
-            const regexEmojiDiscord = /(<a?)?:\w+:(\d{18}>)?/g;
+            
+            //old: /(<a?)?:\w+:(\d{18}>)?/g
+            const regexEmojiDiscord = /(<a?):\w+:(\d{18}>)/g;
 
             const answer = string.replace(emoji, '');
-
+            
             if (regexEmoji.test(emoji) || regexEmojiDiscord.test(emoji)) {
                 if (answer.length > 0) {
                     return { 
@@ -61,7 +63,7 @@ module.exports = {
             const embed = new MessageEmbed()
                 .setTitle('Umfrage erstellen')
                 .setDescription(`Frage: ${theme}`)
-                .addField('Antwortmöglichkeiten', "schreibe den Emoji mit der Antwortmöglichkeit", false)
+                .addField('Antwortmöglichkeiten', "schreibe den Emoji mit der Antwortmöglichkeit", false);
 
             const buttons = new MessageActionRow()
                 .addComponents(
@@ -86,7 +88,7 @@ module.exports = {
             });
             
             const collector = interaction.channel.createMessageCollector({ filterMessage, time: 60000 })
-            const collectorComponent = interaction.channel.createMessageComponentCollector({ filterComponent, componentType: 'BUTTON',time: 60000 })
+            const collectorComponent = interaction.channel.createMessageComponentCollector({ filterComponent, componentType: 'BUTTON', time: 60000 })
 
             collector.on('collect', async message => {
                 const answerE = getAnswerElements(message.content);
