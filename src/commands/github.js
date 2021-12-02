@@ -12,11 +12,16 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('github')
         .setDescription('The Github link'),
+
+    help: {
+        title: '<:github:915962481703280680> Github Repository',
+        description: 'Sends a link of the official GitHub repository'
+    },
     /**
      * Execute
      * @param {Interaction} interaction 
      */
-    async execute(interaction) {
+    async execute(client, interaction) {
         if(!interaction.isCommand()) return;
 
         const embet = new MessageEmbed()

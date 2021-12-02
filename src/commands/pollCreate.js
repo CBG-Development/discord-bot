@@ -20,6 +20,11 @@ module.exports = {
                 .setDescription('Thema der Umfrage')
                 .setRequired(true)),
 
+    help: {
+        title: '🗳️ Creates a Poll',
+        description: 'Creates a poll with emoji reaction. (Custom Emojis are allowed)'
+    },
+
     permissions: [
         // Projektleitung
         { id: '905730518505644042', type: 'ROLE' },
@@ -32,7 +37,7 @@ module.exports = {
      * Execute
      * @param {Interaction} interaction 
      */
-    async execute(interaction) {
+    async execute(client, interaction) {
         
         /**
          * Get Answer as an element

@@ -19,7 +19,10 @@ module.exports = {
                 .setDescription('Message ID')
                 .setRequired(true)),
     
-    needAdminPermission: true,
+    help: {
+        title: '📉 Results Poll',
+        description: 'Responses with a private message with all data of a poll'
+    },
     
     permissions: [
         // Projektleitung
@@ -29,7 +32,7 @@ module.exports = {
         // Arbeitspaket Leitung
         { id: '909763190970281985', type: 'ROLE' },
     ],
-    async execute(interaction) {
+    async execute(client, interaction) {
         const messageId = await interaction.options.getString('messageid');
         const reactions = [];
         const usersReplyMessage = [];

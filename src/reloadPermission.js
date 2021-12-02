@@ -8,7 +8,6 @@ module.exports = {
     */
     async reloadPermission (client, guild){
         console.log(`[Started] reloading Permissions of ${guild.name}: ${guild.id}`);
-		
 
 		const ClientCommands = client.commands;
 		const GuildCommands = await guild.commands.fetch();

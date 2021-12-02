@@ -29,19 +29,24 @@ module.exports = {
         // Discord Administration
         { id: '905472488069292112', type: 'ROLE' },
 	],
+
+	help: {
+		title: '🖱️ Reaction Role',
+		description: 'Creates a Reaction Role on a message.'
+	},
 	/**
      * Execute
      * @param {Interaction} interaction 
      */
-	async execute(interaction) {
+	async execute(client, interaction) {
 		
 		let messageid = interaction.options.getString('message');
-		let client = interaction.client;
+		let user = interaction.client;
 		
 		 /**
 		  * @type {ReactionRoleManager}
 		  */
-		let reactionRoleManager = client.reactionRoleManager;
+		let reactionRoleManager = user.reactionRoleManager;
 
 
 		//search for the MSG of the user
@@ -77,7 +82,7 @@ module.exports = {
 
 				//remove my emote
 				if(emoji.name !== '⏺️' && reactetedrecord){
-					await msg.reactions.resolve("⏺️").users.remove(client.user);	
+					await msg.reactions.resolve("⏺️").users.remove(user.user);	
 				}
 				
 				let reactionrole;
@@ -97,7 +102,7 @@ module.exports = {
 
 			})
 			.catch(async collected => {
-				await msg.reactions.resolve("⏺️").users.remove(client.user);
+				await msg.reactions.resolve("⏺️").users.remove(user.user);
 				await interaction.followUp({content: 'time out', ephemeral: true});
 				console.error;
 			})
