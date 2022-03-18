@@ -30,7 +30,7 @@ module.exports = {
         .setDescription('This is the official GitHub respository for our Discord-Bot')
         .setColor('#0081c6')
         .setThumbnail('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png')
-        .setImage('https://www.bbs-technik-koblenz.de/www/images/bilder/Logo/logo_2013.png');
+        .setImage('https://bbs-technik-koblenz.de/wp-content/uploads/2021/11/logo-2x.png');
         interaction.reply({embeds: [embet]})
     }
 }

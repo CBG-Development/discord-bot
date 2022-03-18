@@ -13,7 +13,7 @@ const commandFiles = fs.readdirSync(__dirname + '/commands').filter(file => file
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
-    commands.push(command.data.toJSON());
+    commands.push(command.data);
 }
 
 
