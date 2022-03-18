@@ -28,6 +28,8 @@ const fs = require("fs");
         { id: '905472488069292112', type: 'ROLE' },
         // Arbeitspaket Leitung
         { id: '909763190970281985', type: 'ROLE' },
+        // Turniermanagement
+        { id: '908460036257374269', type: 'ROLE' }
     ],
     /**
      * Execute
