@@ -8,6 +8,7 @@ const deployCommands = require('./deploy-commands');
 const api = require('./api');
 const ReactionRoleManager = require('./Reactionrole/ReactionRoleManager');
 const { reloadPermission } = require('./reloadPermission');
+const TournamentManager = require('./Tournament/TournamentManager');
 
 /**
  * Status of the Bot
@@ -102,6 +103,7 @@ client.on('interactionCreate', async (interaction) => {
 client.on('ready', async () => {
 
     client.reactionRoleManager = new ReactionRoleManager();
+    client.tournamentManager = new TournamentManager();
 
     client.reloadPermission(client, client.guilds.cache.get(process.env.DISCORD_GUILD_ID));
 

@@ -3,6 +3,7 @@ const { MessageEmbed, Interaction, MessageActionRow, MessageButton, MessageSelec
 const { v4: uuid } = require("uuid");
 const genSimpleID = require('../tools/genTournamentID');
 const fs = require("fs");
+const TournamentManager = require('../Tournament/TournamentManager');
 
 /**
  * Title: Tournament
@@ -12,13 +13,13 @@ const fs = require("fs");
  module.exports = {
 
     data: new SlashCommandBuilder()
-        .setName('tournament')
-        .setDescription('Create a tournament')
+        .setName('ctournament')
+        .setDescription('Erstellt ein Turnier mit einem Turniercode.')
         .setDefaultPermission(false),
 
     help: {
-        title: '<:github:915962481703280680> Github Repository',
-        description: 'Sends a link of the official GitHub repository'
+        title: '<:turnier:915962481703280680> Turniere erstellen',
+        description: 'Erstellt ein Turnier mit einem Turniercode um diesem beizutreten.'
     },
 
     permissions: [
@@ -146,18 +147,11 @@ const fs = require("fs");
                 }
 
                 if (i.customId === "create") {
-                    
-                    fs.readFile('./tournaments.json', 'utf8', function readFileCallback(err, data){
-                        if (err){
-                            console.log(err);
-                        } else {
-                        obj = JSON.parse(data); //now it an object
-                        obj.push(tournament); //add some data
-                        json = JSON.stringify(obj); //convert it back to json
-                        fs.writeFile('tournaments.json', json, 'utf8', (err) => {
-                            if (err) return console.error(err);
-                        }); // write it back 
-                    }});
+                    /**
+                     * @type {TournamentManager}
+                     */
+                    const tournamentManager = client.tournamentManager;
+                    tournamentManager.addTournament(tournament);
 
                     informationEmbed = new MessageEmbed()
                         .setAuthor('CBG | Tournaments', 'https://cdn.discordapp.com/attachments/909555660969111552/954397631608680518/Story-Cover_Tuniere.png', null)
