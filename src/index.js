@@ -105,7 +105,7 @@ client.on('ready', async () => {
     client.reactionRoleManager = new ReactionRoleManager();
     client.tournamentManager = new TournamentManager();
 
-    client.reloadPermission(client, client.guilds.cache.get(process.env.DISCORD_GUILD_ID));
+    //client.reloadPermission(client, client.guilds.cache.get(process.env.DISCORD_GUILD_ID), process.env.DISCORD_TOKEN);
 
     global.botStatus = true; // Set Bot status to connected (true)
     console.log(`${client.user.tag} is connected to Discord!`);
