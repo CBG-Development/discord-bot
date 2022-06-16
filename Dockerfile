@@ -10,6 +10,6 @@ COPY . .
 
 EXPOSE 3030
 
-USER cbgdiscordbot
+USER cbg-discord-bot
 
 CMD ["npm", "start"]
