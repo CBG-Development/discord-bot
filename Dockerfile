@@ -10,7 +10,7 @@ COPY . .
 
 EXPOSE 3030
 
-RUN chown -R cbg-discord-bot /usr/src/cbg-discord-bot
+RUN chown -R cbgdiscordbot /usr/src/cbg-discord-bot
 USER cbg-discord-bot
 
 CMD ["npm", "start"]
