@@ -1,9 +1,7 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { MessageEmbed, Interaction, MessageActionRow, MessageButton, MessageSelectMenu, GuildChannel, CategoryChannel } = require('discord.js');
-const { v4: uuid } = require("uuid");
-const genSimpleID = require('../tools/genTournamentID');
-const fs = require("fs");
-const TournamentManager = require('../Tournament/TournamentManager');
+const { MessageEmbed, Interaction, MessageActionRow, MessageButton, MessageSelectMenu } = require('discord.js');
+const genSimpleID = require('../tools/genSimpleID');
+const TournamentManager = require('../Manager/TournamentManager');
 
 /**
  * Title: Tournament

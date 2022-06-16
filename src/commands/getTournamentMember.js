@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed, Interaction, Client } = require('discord.js');
-const TournamentManager = require('../Tournament/TournamentManager');
+const TournamentManager = require('../Manager/TournamentManager');
 
 module.exports = {
 
