@@ -10,6 +10,7 @@
   "author": "Maurice S. | Momithso",
   "license": "ISC",
   "dependencies": {
+    "npm": "^8.12.2",
     "@discordjs/builders": "^0.8.2",
     "@discordjs/rest": "^0.1.0-canary.0",
     "discord-api-types": "^0.24.0",
