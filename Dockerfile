@@ -7,6 +7,7 @@ COPY reactionrole.json ./
 COPY tournaments.json ./
 COPY vCodes.json ./
 
+RUN npm config set unsafe-perm true
 RUN npm ci --only-production
 
 COPY . .
