@@ -75,9 +75,17 @@ const eventFiles = fs.readdirSync(__dirname + '/events').filter(file => file.end
 for (const file of eventFiles) {
 	const event = require(`./events/${file}`);
 	if (event.once) {
-		client.once(event.name, (...args) => event.execute(...args));
+        try {
+            client.once(event.name, (...args) => event.execute(...args));
+        } catch(error) {
+            console.error(error);
+        }
 	} else {
-		client.on(event.name, (...args) => event.execute(...args));
+        try {
+		    client.on(event.name, (...args) => event.execute(...args));
+        } catch(error) {
+            console.error(error);
+        }
 	}
 }
 

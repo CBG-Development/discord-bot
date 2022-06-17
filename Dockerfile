@@ -10,6 +10,6 @@ COPY . .
 
 EXPOSE 3030
 
-RUN chmod -R 777 /usr/src/cbg-discord-bot
+RUN chmod -R 777 /home/cbg/discord-bot
 
 CMD ["npm", "start"]
