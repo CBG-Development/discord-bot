@@ -44,8 +44,12 @@ module.exports = {
                         .setColor('#29ff00')
                         .setTimestamp(Date.now())
                     
-                    await message.delete();
-                    await message.author.send({ embeds: [response]})
+                    try {
+                        await message.delete();
+                        await message.author.send({ embeds: [response]});
+                    } catch (err) {
+                        console.error(err);
+                    }
                 } else {
                     response
                         .setTitle('❌ Verifizierungs Fehler.')
@@ -53,8 +57,12 @@ module.exports = {
                         .setColor('#ff0000')
                         .setTimestamp(Date.now())
     
-                    await message.delete();
-                    await message.author.send({ embeds: [response]})
+                    try {
+                        await message.delete();
+                        await message.author.send({ embeds: [response]});
+                    } catch (err) {
+                        console.error(err);
+                    }
                 }
             }
         }
