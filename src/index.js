@@ -21,7 +21,25 @@ global.botStatus = false;
 /**
  * Setting up Environment variables
  */
-dotenv.config();
+if (process.env.NODE_ENV !== 'production') {
+    const result = dotenv.config();
+    if (result.error) {
+        throw result.error;
+    }
+} else {
+    console.log('Production mode');
+    const args = process.argv.slice(2);
+
+    if (!(args[0].includes("DISCORD_TOKEN=") && args[1].includes("DISCORD_CLIENT_ID=") && args[2].includes("DISCORD_GUILD_ID="))) {
+        console.log('Missing arguments');
+        process.exit(1);
+    }
+
+    console.log(args);
+    process.env.DISCORD_TOKEN = args[0].replace("DISCORD_TOKEN=", "");
+    process.env.DISCORD_CLIENT_ID = args[1].replace("DISCORD_CLIENT_ID=", "");
+    process.env.DISCORD_GUILD_ID = args[2].replace("DISCORD_GUILD_ID=", "");
+}
 
 /**
  * Environment Variables
@@ -42,12 +60,12 @@ dotenv.config();
 /**
  * Starting API
  */
-api;
+api();
 
 /**
  * Deploying Clients to Discord
  */
-deployCommands;
+deployCommands();
 
 /**
  * Creating Discord Bot Client
