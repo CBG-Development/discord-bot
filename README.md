@@ -22,9 +22,13 @@ Third step create an `.env` file at the project folder. Paste the information th
     DISCORD_CLIENT_ID=APPID
     DISCORD_GUILD_ID=GUILDID
 
-Start the app with
+Start the app in production mode with
 
-    npm start
+    npm start DISCORD_TOKEN=<YOURTOKEN> DISCORD_CLIENT_ID=<YOUR_CLIENT_ID> DISCORD_GUILD_ID=<DISCORD_GUILD_ID>
+
+Test it in development mode with
+
+    npm test
 
 ## Usage
 All commands are registrated during Discord's API. So check them up with `/`.
