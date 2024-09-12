@@ -19,8 +19,6 @@ module.exports = {
         { id: '905730518505644042', type: 'ROLE' },
         // Discord Administration
         { id: '905472488069292112', type: 'ROLE' },
-        // Arbeitspaket Leitung
-        { id: '909763190970281985', type: 'ROLE' },
         // Turniermanagement
         { id: '908460036257374269', type: 'ROLE' }
     ],
